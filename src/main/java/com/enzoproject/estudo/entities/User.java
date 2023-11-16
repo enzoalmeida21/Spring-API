@@ -2,15 +2,27 @@ package com.enzoproject.estudo.entities;
 
 import java.io.Serializable;
 
+
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
+
+@Entity
+@Table(name = "tb_user")
 public class User implements Serializable {
 	private static final long serialVersionUID = 1L;
-	
+
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	private String name;
 	private String email;
 	private String phone;
 	private String password;
-	
+
+
 	public User() {
 	}
 
@@ -63,6 +75,7 @@ public class User implements Serializable {
 		this.password = password;
 	}
 
+
 	@Override
 	public int hashCode() {
 		final int prime = 31;
@@ -87,6 +100,4 @@ public class User implements Serializable {
 			return false;
 		return true;
 	}
-	
-	
 }
